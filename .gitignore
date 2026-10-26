@@ -1,0 +1,30 @@
+# build output
+bin/
+obj/
+publish/
+*.user
+.vs/
+# local runtime data (next to the exe)
+settings.json
+probe_cache.json
+Convertr-data/
+*.log
+TestResults/
+# generated at build time
+/Convertr.exe
+
+# secrets and local data
+appsettings.json
+!deploy/appsettings.example.json
+*.token
+*.key
+*.pem
+.env
+*.bak-*
+*.tar.gz
+*.sha256
+*.dmp
+*.exe
+
+# local publishing notes (never commit)
+PUBLISHING.local.md

@@ -1,0 +1,28 @@
+<!--
+  Copyright (C) 2026 JeepNWilly
+  Convertr is free software: you can redistribute it and/or modify it under the terms of the
+  GNU General Public License as published by the Free Software Foundation, either version 3
+  of the License, or (at your option) any later version. It comes with no warranty.
+  See the LICENSE file in the repository root or <https://www.gnu.org/licenses/>.
+-->
+<Project>
+  <PropertyGroup>
+    <ConvertrVersion>$([System.IO.File]::ReadAllText('$(MSBuildThisFileDirectory)VERSION').Trim())</ConvertrVersion>
+    <ConvertrBuild>$([System.IO.File]::ReadAllText('$(MSBuildThisFileDirectory)BUILD_NUMBER').Trim())</ConvertrBuild>
+    <Version>$(ConvertrVersion)</Version>
+    <AssemblyVersion>$(ConvertrVersion).$(ConvertrBuild)</AssemblyVersion>
+    <FileVersion>$(ConvertrVersion).$(ConvertrBuild)</FileVersion>
+    <InformationalVersion>$(ConvertrVersion) (build $(ConvertrBuild))</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Authors>JeepNWilly</Authors>
+    <Company>JeepNWilly</Company>
+    <Copyright>Copyright (C) 2026 JeepNWilly</Copyright>
+    <Product>Convertr</Product>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+</Project>

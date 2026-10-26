@@ -1,0 +1,21 @@
+<!--
+  Copyright (C) 2026 JeepNWilly
+  Convertr is free software: you can redistribute it and/or modify it under the terms of the
+  GNU General Public License as published by the Free Software Foundation, either version 3
+  of the License, or (at your option) any later version. It comes with no warranty.
+  See the LICENSE file in the repository root or <https://www.gnu.org/licenses/>.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Developer tool, not part of the shipped exe: headless scan/verify and screenshot rendering. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>Convertr.Harness</AssemblyName>
+    <RootNamespace>Convertr.Harness</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Convertr\Convertr.csproj" />
+    <ProjectReference Include="..\..\src\Convertr.Core\Convertr.Core.csproj" />
+  </ItemGroup>
+</Project>

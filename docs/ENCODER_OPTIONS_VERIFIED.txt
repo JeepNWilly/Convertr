@@ -1,0 +1,33 @@
+Encoder and filter options used by Convertr, checked on 16 Oct 2026
+====================================================================
+
+Checked with `ffmpeg -h encoder=NAME`, `-h filter=NAME` and `-filters` on the
+official Windows "essentials" builds ffmpeg 9.0.2 and ffmpeg 8.0.1.
+
+Option                                   9.0.2  8.0.1
+---------------------------------------  -----  -----
+libx265  -preset -tune -profile          yes    yes
+libx265  -crf (generic AVOption)         yes    yes
+libx265  -x265-params aq-mode=3          yes    yes
+libx264  -preset -tune -profile -level   yes    yes
+libx264  -crf                            yes    yes
+hevc_nvenc -preset p7 -tune hq -rc vbr   yes    yes
+hevc_nvenc -cq -spatial-aq -rc-lookahead yes    yes
+hevc_nvenc -profile main / main10        yes    yes
+h264_nvenc same options, -profile high   yes    yes
+bwdif=mode=send_frame:parity=auto:deint=all  yes yes
+ssim, psnr, libvmaf filters (quality)    yes    yes
+
+Notes
+-----
+* NVENC options are spelled with a dash (-spatial-aq, -rc-lookahead). 8.0.1 also
+  accepts the underscore form; 9.0.2 only lists the dash form. Convertr uses the dash form.
+* The NVENC encoders exist in every build, but they only work when the installed
+  NVIDIA driver supports the NVENC API version the ffmpeg build was compiled for.
+  On the build machine (driver 581.80, NVENC API 13.0) ffmpeg 9.0.2 and 8.1.2 (which need
+  API 13.1) cannot open the NVENC encoders, while ffmpeg 8.0.1 works.
+  Convertr tests this (`FfmpegLocator.TestNvencAsync`) and says so in Setup.
+* Cleaning: `-map_metadata -1`, `-fflags +bitexact -flags:v +bitexact -flags:a +bitexact`
+  remove the global/stream tags and the "Lavf" encoder tag. `-map V:0` (capital V)
+  excludes cover art. `-movflags +faststart` for MP4. `-tag:v hvc1` for HEVC in MP4.
+  `-c:s mov_text` for text subtitles kept in MP4.

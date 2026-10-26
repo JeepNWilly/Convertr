@@ -1,0 +1,24 @@
+<!--
+  Copyright (C) 2026 JeepNWilly
+  Convertr is free software: you can redistribute it and/or modify it under the terms of the
+  GNU General Public License as published by the Free Software Foundation, either version 3
+  of the License, or (at your option) any later version. It comes with no warranty.
+  See the LICENSE file in the repository root or <https://www.gnu.org/licenses/>.
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+    <ApplicationIcon>Convertr.ico</ApplicationIcon>
+    <AssemblyName>Convertr</AssemblyName>
+    <RootNamespace>Convertr</RootNamespace>
+    <Description>Convertr - scans a Plex library and plans conversions for direct play (milestone 1: preview only)</Description>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Convertr.Core\Convertr.Core.csproj" />
+    <EmbeddedResource Include="Convertr.ico" LogicalName="Convertr.ico" />
+  </ItemGroup>
+</Project>
