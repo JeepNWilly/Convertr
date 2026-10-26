@@ -44,7 +44,7 @@ cd source
 powershell -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-This runs the tests, then publishes a single-file, self-contained `Convertr.exe` one level above `source`. It is about 60-70 MB, runs on any 64-bit Windows with nothing installed, and keeps its files next to itself. `build.ps1 -FrameworkDependent` makes a small exe that needs the .NET 10 Desktop Runtime instead.
+This runs the tests, then publishes a single-file, self-contained `Convertr.exe` one level above `source`. It is about 50 MB, runs on any 64-bit Windows with nothing installed, and keeps its files next to itself. `build.ps1 -FrameworkDependent` makes a small exe that needs the .NET 10 Desktop Runtime instead.
 
 Files Convertr writes (next to the exe): `settings.json`, `probe_cache.json`, `queue.json` (while a run is unfinished), `Logs\`, and a plan CSV only when you export one. In the library it only writes the converted files (and their temporary `.convertr-part` files) and the `_Convertr_Originals` / `_Convertr_Undone` folders next to the Media folder.
 

@@ -231,7 +231,7 @@ This tab lists files that need a human decision instead of a rule: probe errors 
 |---|---|---|---|
 | Long-running ffmpeg, live progress, pause/resume | Possible with runspaces and timers, but fragile. UI freezes are a common problem | `async`/`Process` events, `CancellationToken`. Straightforward | Same as WinForms |
 | Testability | Pester works, but GUI and logic tend to tangle | xUnit tests on a planner with no UI dependency | Same |
-| Distribution | Small exe. ps2exe exes are often flagged by anti-virus | Single-file exe: about 1-3 MB framework-dependent, or about 70 MB self-contained (portable, no install) | Same as WinForms |
+| Distribution | Small exe. ps2exe exes are often flagged by anti-virus | Single-file exe: about 1-3 MB framework-dependent, or about 50 MB self-contained (portable, no install) | Same as WinForms |
 | Learning curve | Lowest | Moderate | Highest |
 
 **Recommendation: C# .NET 10 WinForms, published as a self-contained single-file portable exe.** The core of Convertr is a long-running, resumable, multi-process job queue. That is exactly where PowerShell 5.1 is weakest, and where a wrong move costs real data. WinForms gives a native Windows look and feel. If staying in one language matters more, PowerShell is workable for M1 (the scanner), but the worker should still be designed as described below.

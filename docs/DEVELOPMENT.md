@@ -6,7 +6,7 @@
 - `src/Convertr` (net10.0-windows WinForms): MainForm, SetupForm, DetailsForm, `RunDialogs` (confirmation and undo dialogs, `AppPaths`), `DialogPlacement` (centre over the owner and clamp to the working area), `Theming` (Dark/Light/System) and helpers.
 - `tests/Convertr.Tests`: xunit. Mocked ffprobe JSON (`Ffp.cs`) covers every planner rule; `RealScanCsvTests` checks counts against `library_formats.csv` (skipped if the CSV is absent).
 - `tools/Harness`: dev-only console tool, not shipped: `scan`, `shots`, `runshots` (screenshots of the run, confirmation, undo and Setup/download states), `convert` (real end-to-end run on a scratch COPY of a library: copies, scans, plans, converts, writes a per-file CSV; it refuses a Z: path), `quality` (ssim/psnr/libvmaf of each converted file against its original in the holding folder) and `undo`.
-- `build.ps1`: runs tests, bumps BUILD_NUMBER, publishes single-file win-x64 to `..\Convertr.exe`. Default is self-contained (~60-70 MB, runs anywhere); `-FrameworkDependent` gives a small exe that needs the .NET 10 Desktop runtime. Also `-NoTest`, `-NoBump`. It needs the .NET 10 SDK and looks for it on PATH, then in `%LOCALAPPDATA%\Microsoft\dotnet`, `%USERPROFILE%\.dotnet` and Program Files.
+- `build.ps1`: runs tests, bumps BUILD_NUMBER, publishes single-file win-x64 to `..\Convertr.exe`. Default is self-contained (~50 MB, runs anywhere); `-FrameworkDependent` gives a small exe that needs the .NET 10 Desktop runtime. Also `-NoTest`, `-NoBump`. It needs the .NET 10 SDK and looks for it on PATH, then in `%LOCALAPPDATA%\Microsoft\dotnet`, `%USERPROFILE%\.dotnet` and Program Files.
 
 ## Planner rule order
 
